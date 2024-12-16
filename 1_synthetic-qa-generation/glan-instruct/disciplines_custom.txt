@@ -1,0 +1,39 @@
+Classical Mechanics
+Quantum Mechanics
+Thermodynamics
+Electromagnetism
+Optics
+Nuclear Physics
+Organic Chemistry
+Inorganic Chemistry
+Physical Chemistry
+Analytical Chemistry
+Biochemistry
+Botany
+Zoology
+Genetics
+Microbiology
+Ecology
+Molecular Biology
+Geology
+Meteorology
+Oceanography
+Environmental Science
+Paleontology
+Algebra
+Calculus
+Statistics
+Geometry
+Number Theory
+Applied Mathematics
+Astrophysics
+Cosmology
+Planetary Science
+Stellar Astronomy
+Galactic Astronomy
+Artificial Intelligence
+Machine Learning
+Software Engineering
+Cybersecurity
+Data Science
+Human-Computer Interaction

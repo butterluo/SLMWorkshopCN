@@ -1,0 +1,95 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: SLM Innv Lab
+email: daekeun.kim@microsoft.com, hyo.choi@microsoft.com
+description: >- # this means to ignore newlines until "baseurl:"
+    Unlock the full potential of your AI projects with the SLM Innovator Lab, powered by the Azure AIML Platform.
+#baseurl: "https://azure.github.io" # the subpath of your site, e.g. /blog
+url: "slm-innovator-lab" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: kramdown
+theme: just-the-docs
+plugins:
+    - jekyll-feed
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - node_modules
+    - README.md
+    - README_ja.md
+    - SUPPORT.md
+    - vendor
+    - 0_lab_preparation/README_ja.md
+    - 0_lab_preparation/why_finetune_ja.md
+    - 1_synthetic-qa-generation/README_ja.md
+    - 1_synthetic-qa-generation/evolve-instruct/README_ja.md
+    - 1_synthetic-qa-generation/glan-instruct/README_ja.md
+    - 2_slm-fine-tuning-mlstudio/README_ja.md
+    - 2_slm-fine-tuning-mlstudio/phi3/dataset-preparation/
+    - 3_llmops-aistudio/README_ja.md
+    - 3_llmops-aistudio/3_1_setup-ai-studio/README_ja.md
+    - 3_llmops-aistudio/3_2_prototyping/README_ja.md
+    - 3_llmops-aistudio/3_2_prototyping/lab3.2_promptflow_ko.md
+    - 3_llmops-aistudio/3_2_prototyping/lab3.2.1_promptflow_ja.md
+    - 3_llmops-aistudio/3_2_prototyping/lab3.2.2_promptflow_ja.md
+    - 3_llmops-aistudio/3_2_prototyping/lab3.2.3_promptflow_with_code_ja.md
+    - 3_llmops-aistudio/3_3_optimizing/README_ja.md
+    - 3_llmops-aistudio/3_3_optimizing/lab3.3_evaluation_ja.md
+    - 3_llmops-aistudio/3_3_optimizing/lab3.3_evaluation_with_code_ja.md
+    - 3_llmops-aistudio/3_3_optimizing/lab3.3_evaluation_ko.md
+    - 3_llmops-aistudio/3_4_operationalizing/README_ja.md
+    - 3_llmops-aistudio/3_4_operationalizing/lab3.4_contentfilter_ja.md
+    - 3_llmops-aistudio/3_4_operationalizing/lab3.4_contentfilter_ko.md
+
+# By default, all Capital letters come before all lowercase letters;
+# you can add nav_sort: case_insensitive in the configuration file to ignore the case.
+nav_sort: case_insensitive
+
+footer_content: 'Distributed by an <a href="https://github.com/Azure/slm-innovator-lab/blob/main/LICENSE">MIT license.</a> This hands-on lab was developed by Microsoft AI GBB (Global Black Belt).'
+
+callouts_level: loud # or loud
+callouts:
+    highlight:
+        color: yellow
+    important:
+        title: Important
+        color: blue
+    new:
+        title: New
+        color: green
+    note:
+        title: Note
+        color: purple
+    warning:
+        title: Warning
+        color: red
+
+# Aux links for the upper right navigation
+aux_links:
+    "Microsoft SLM Innovator Lab on GitHub":
+        - "https://github.com/Azure/slm-innovator-lab/"
+
+# Makes Aux links open in a new tab. Default is false
+aux_links_new_tab: false
+
+# Enable or disable the side/mobile menu globally
+# Nav menu can also be selectively enabled or disabled using page variables or the minimal layout
+nav_enabled: true
