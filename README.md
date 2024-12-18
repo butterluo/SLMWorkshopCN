@@ -64,6 +64,18 @@ This workshop assumes that you are configuring in a public environment and you h
 1. Create your compute instance in [Azure ML]. For code development, we recommend **[Standard_DS11_v2]** (2 cores, 14GB RAM, 28GB storage, No GPUs).
 2. Open the terminal of the CI and run: 
     ```shell
+    git clone https://github.com/butterluo/SLMWorkshopCN
+    cd slm-innovator-lab && conda activate azureml_py310_sdkv2
+    pip install -r requirements.txt
+    ```
+    or
+    ```shell
+    git clone https://gitee.com/nilbody_0/SLMWorkshopCN
+    cd slm-innovator-lab && conda activate azureml_py310_sdkv2
+    pip install -r requirements.txt
+    ```
+    or    
+    ```shell
     git clone https://github.com/Azure/slm-innovator-lab.git
     cd slm-innovator-lab && conda activate azureml_py310_sdkv2
     pip install -r requirements.txt

@@ -49,6 +49,18 @@ Before starting, you have met the following requirements:
 1. Create your compute instance in [Azure ML]. For code development, we recommend **[Standard_DS11_v2]** (2 cores, 14GB RAM, 28GB storage, No GPUs).
 2. Open the terminal of the CI and run: 
     ```shell
+    git clone https://github.com/butterluo/SLMWorkshopCN
+    cd SLMWorkshopCN && conda activate azureml_py310_sdkv2
+    pip install -r requirements.txt
+    ```
+    or
+    ```shell
+    git clone https://gitee.com/nilbody_0/SLMWorkshopCN
+    cd SLMWorkshopCN && conda activate azureml_py310_sdkv2
+    pip install -r requirements.txt
+    ```
+    or    
+    ```shell
     git clone https://github.com/Azure/slm-innovator-lab.git
     cd slm-innovator-lab && conda activate azureml_py310_sdkv2
     pip install -r requirements.txt
@@ -103,7 +115,7 @@ Before starting, you have met the following requirements:
 
 </details>
 
-[SLM Innovator Lab]: https://github.com/Azure/slm-innovator-lab
+[SLM Innovator Lab]: https://github.com/butterluo/SLMWorkshopCN or https://gitee.com/nilbody_0/SLMWorkshopCN or https://github.com/Azure/slm-innovator-lab
 [Azure OpenAI]: https://oai.azure.com/
 [Azure ML]: https://ml.azure.com/
 [Azure AI Studio]: https://ai.azure.com/

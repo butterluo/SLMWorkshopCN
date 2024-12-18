@@ -83,16 +83,21 @@ Please ensure these points are followed to avoid common issues during the worksh
 
 ### 2️⃣ Clone the repository and install the required packages
 1. Go to your terminal in your evironment and clone the repository. 
-
+```shell
+git clone https://github.com/butterluo/SLMWorkshopCN
+```
+or
+```shell
+git clone https://gitee.com/nilbody_0/SLMWorkshopCN
+```
+or
 ```shell
 git clone https://github.com/Azure/slm-innovator-lab.git
 ```
-
-
 2. Install all Python modules and packages listed in the requirements.txt file using the below command.
 
 ```shell
-cd slm-innovator-lab # Change to the directory where the repository is cloned
+cd SLMWorkshopCN # Change to the directory where the repository is cloned
 ENVIRONMENT=azureml_py310_sdkv2
 conda activate "$ENVIRONMENT"
 pip install -r requirements.txt
