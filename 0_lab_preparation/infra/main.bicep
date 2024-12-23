@@ -5,6 +5,9 @@ targetScope = 'subscription'
 @description('Name of the the environment which is used to generate a short unique hash used in all resources.')
 param environmentName string
 
+@description('current user objectId.')
+param currentUserObjectId string
+
 @minLength(1)
 @description('Primary location for all resources')
 @allowed(['eastus', 'westus2', 'northcentralus'])
@@ -218,6 +221,13 @@ module storageAccount 'br/public:avm/res/storage/storage-account:0.14.1' = {
     name: !empty(storageAccountName) ? storageAccountName : '${abbrs.storageStorageAccounts}${resourceToken}'
     kind: 'BlobStorage'
     publicNetworkAccess: publicNetworkAccess
+    roleAssignments: [
+      {
+        roleDefinitionIdOrName: 'ba92f5b4-2d11-453d-a403-e96b0029c9fe'
+        principalId: currentUserObjectId
+        principalType: 'User'
+      }
+    ]
     allowBlobPublicAccess: false
     allowSharedKeyAccess: false
     location: location
@@ -263,6 +273,15 @@ module mlworkspace 'br/public:avm/res/machine-learning-services/workspace:0.8.1'
     associatedKeyVaultResourceId: vault.outputs.resourceId
     associatedStorageAccountResourceId: storageAccount.outputs.resourceId
     location: location
+    publicNetworkAccess:publicNetworkAccess
+    roleAssignments: [
+      {
+        roleDefinitionIdOrName: 'b78c5d69-af96-48a3-bf8d-a8b4d589de94'
+        principalId: currentUserObjectId
+        principalType: 'User'
+      }
+    ]
+
     tags: tags
   }
 }
