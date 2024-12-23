@@ -39,12 +39,22 @@ For GitHub Codespaces users, if the previous command fails, try:
  azd auth login --use-device-code
 ```
 
+
+```shell
+ az ad signed-in-user show --query id  --output tsv
+```
+Get the objectId of current user.
+***Get it for the below command azd up's input paramter 'currentUserObjectId'***
+
 Run azd up - This will provision Azure resources including Azure ML workspace, Azure OpenAI resources, Application Insights, and Azure Document Intelligence.
 
 ```shell
 
 azd up
 ```
+
+***when you see the message "Enter a value for the 'currentUserObjectId' infrastructure parameter" then paste the output of command" az ad signed-in-user show --query id  --output tsv"***
+
 **Important**: Beware that the resources created by this command will incur immediate costs, primarily from the AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. You can run `azd down` or delete the resources manually to avoid unnecessary spending.
 You will be prompted to select two locations, one for the majority of resources and one for the OpenAI resource, which is currently a short list. That location list is based on the OpenAI model availability table and may become outdated as availability changes.
 After the application has been successfully deployed you will see a URL printed to the console. Click that URL to interact with the application in your browser. It will look like the following:
