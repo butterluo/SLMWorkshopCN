@@ -23,7 +23,7 @@ param resourceGroupName string = '' // Set in main.parameters.json
 @secure()
 param openAiServiceName string = ''
 
-param useGPT4V bool = false
+param useGPT4V bool = true
 
 @description('Location for the OpenAI resource group')
 @allowed([
@@ -78,9 +78,9 @@ param embeddingDeploymentSkuName string = ''
 param embeddingDeploymentCapacity int = 0
 param embeddingDimensions int = 0
 var embedding = {
-  modelName: !empty(embeddingModelName) ? embeddingModelName : 'text-embedding-ada-002'
+  modelName: !empty(embeddingModelName) ? embeddingModelName : 'text-embedding-3-small'
   deploymentName: !empty(embeddingDeploymentName) ? embeddingDeploymentName : 'embedding'
-  deploymentVersion: !empty(embeddingDeploymentVersion) ? embeddingDeploymentVersion : '2'
+  deploymentVersion: !empty(embeddingDeploymentVersion) ? embeddingDeploymentVersion : '1'
   deploymentSkuName: !empty(embeddingDeploymentSkuName) ? embeddingDeploymentSkuName : 'Standard'
   deploymentCapacity: embeddingDeploymentCapacity != 0 ? embeddingDeploymentCapacity : 30
   dimensions: embeddingDimensions != 0 ? embeddingDimensions : 1536
@@ -96,7 +96,7 @@ var gpt4v = {
   deploymentName: !empty(gpt4vDeploymentName) ? gpt4vDeploymentName : 'gpt-4o'
   deploymentVersion: !empty(gpt4vModelVersion) ? gpt4vModelVersion : '2024-05-13'
   deploymentSkuName: !empty(gpt4vDeploymentSkuName) ? gpt4vDeploymentSkuName : 'Standard'
-  deploymentCapacity: gpt4vDeploymentCapacity != 0 ? gpt4vDeploymentCapacity : 10
+  deploymentCapacity: gpt4vDeploymentCapacity != 0 ? gpt4vDeploymentCapacity : 30
 }
 
 param tenantId string = tenant().tenantId
@@ -131,6 +131,18 @@ var defaultOpenAiDeployments = [
     sku: {
       name: gpt4omini.deploymentSkuName
       capacity: gpt4omini.deploymentCapacity
+    }
+  }
+  {
+    name: gpt4v.deploymentName
+    model: {
+      format: 'OpenAI'
+      name: gpt4v.modelName
+      version: gpt4v.deploymentVersion
+    }
+    sku: {
+      name: gpt4v.deploymentSkuName
+      capacity: gpt4v.deploymentCapacity
     }
   }
   {
@@ -322,10 +334,15 @@ output AZURE_OPENAI_DEPLOYMENT_NAME string = gpt4omini.deploymentName
 output AZURE_OPENAI_EMB_DEPLOYMENT_NAME string = embedding.deploymentName
 output AZURE_OPENAI_GPT4V_DEPLOYMENT_NAME string = gpt4v.deploymentName
 output AZURE_DOCUMENTINTELLIGENCE_SERVICE string = documentIntelligence.outputs.name
+output AZURE_OPENAI_API_VERSION string = '2024-07-01-preview'
 
 // Output for the labs
 output AZURE_OPENAI_ENDPOINT string = openAi.outputs.endpoint
 output AZURE_OPENAI_API_KEY object = openAi.outputs.exportedSecrets
 
+// Specific to doc intellij
 output AZURE_DOC_INTELLIGENCE_ENDPOINT string = documentIntelligence.outputs.endpoint
-output AZURE_DOC_INTELLIGENCE_KEY_REFERENCE object = documentIntelligence.outputs.exportedSecrets
+output AZURE_DOC_INTELLIGENCE_KEY object = documentIntelligence.outputs.exportedSecrets
+
+// workspace
+output AZURE_MACHINE_LEARNING_WORKSPACE_NAME string = mlworkspace.outputs.name
