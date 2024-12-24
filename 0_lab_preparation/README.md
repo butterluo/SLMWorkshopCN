@@ -21,11 +21,11 @@ Please create a resource in one of following regions when creating a AI Document
 - Ensure you have access to [Azure OpenAI] Service.
 - Set up your [Azure ML] workspace and get your `<WORKSPACE_NAME>`, `<RESOURCE_GROUP>` and `<SUBSCRIPTION_ID>`.
 - Create a project in [Azure AI Foundry].
-- For LLM training, recommend a single NVIDIA A100 GPU (**[Standard_NC24ads_A100_v4]**). Opt for Low-priority VMs if on a budget or without a dedicated quota.
-- For LLM serving, we recommend two NVIDIA V100 GPUs (**[Standard_NC6s_v3]**). Please refer to the note below for why 2 GPUs are required instead of 1 for Azure ML serving.
+- For LLM training, recommend a single NVIDIA A100 GPU (**[Standard_NC24ads_A100_v4]**). Opt for Low-priority VMs if on a budget or without a dedicated quota. And the quote should be better request in [Azure ML].
+- For LLM serving, we recommend two NVIDIA V100 GPUs (**[Standard_NC6s_v3]**). Please refer to the note below for why 2 GPUs are required instead of 1 for Azure ML serving. And the quote should be better request in [Azure ML].
 
-### Deploying Azure resources with Azure Developer CLI(azd)
-In case you're looking for the easiest way to get started, this lab provides Bicep to provision everything with ease. The steps below will provision required Azure resources. Download the CLI from the [What is the Azure Developer CLI?](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/overview?tabs=windows#a-sample-azd-workflow) if you don't have it installed yet. 
+### Deploying Azure resources with Azure Developer CLI(azd) and Azure CLI(az)
+In case you're looking for the easiest way to get started, this lab provides Bicep to provision everything with ease. The steps below will provision required Azure resources. Download the CLI from the [What is the Azure Developer CLI?](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/overview?tabs=windows#a-sample-azd-workflow) and [Install the Azure CLI on Linux ](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt)if you don't have it installed yet. 
 
 Login to your Azure account:
 
@@ -38,7 +38,7 @@ For GitHub Codespaces users, if the previous command fails, try:
 ```shell
  azd auth login --use-device-code
 ```
-
+And then please run below command:
 
 ```shell
  az ad signed-in-user show --query id  --output tsv
