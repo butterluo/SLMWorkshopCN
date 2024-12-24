@@ -179,7 +179,7 @@ module vault 'br/public:avm/res/key-vault/vault:0.10.1' = {
     enableSoftDelete: false
     networkAcls: {
       bypass: bypass
-      defaultAction: 'Deny'
+      defaultAction: 'Allow'
     }
   }
 }
@@ -301,7 +301,7 @@ module documentIntelligence 'br/public:avm/res/cognitive-services/account:0.7.2'
       defaultAction: 'Allow'
     }
     location: location
-    disableLocalAuth: true
+    disableLocalAuth: false
     tags: tags
     sku: documentIntelligenceSkuName
   }
