@@ -177,6 +177,7 @@ _site/
 
 Gemfile.lock
 
+.azure
 config_prd.yml
 config_prd.json
 pdf_mixed_tmp/
