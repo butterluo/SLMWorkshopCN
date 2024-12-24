@@ -219,7 +219,7 @@ module storageAccount 'br/public:avm/res/storage/storage-account:0.14.1' = {
   scope: resourceGroup
   params: {
     name: !empty(storageAccountName) ? storageAccountName : '${abbrs.storageStorageAccounts}${resourceToken}'
-    kind: 'BlobStorage'
+    kind: 'StorageV2'
     publicNetworkAccess: publicNetworkAccess
     roleAssignments: [
       {
@@ -228,14 +228,14 @@ module storageAccount 'br/public:avm/res/storage/storage-account:0.14.1' = {
         principalType: 'User'
       }
     ]
-    allowBlobPublicAccess: false
-    allowSharedKeyAccess: false
+    allowBlobPublicAccess: true
+    allowSharedKeyAccess: true
     location: location
     tags: tags
     skuName: storageSkuName
     networkAcls: {
       bypass: bypass
-      defaultAction: 'Deny'
+      defaultAction: 'Allow'
     }
   }
 }
@@ -281,7 +281,6 @@ module mlworkspace 'br/public:avm/res/machine-learning-services/workspace:0.8.1'
         principalType: 'User'
       }
     ]
-
     tags: tags
   }
 }
