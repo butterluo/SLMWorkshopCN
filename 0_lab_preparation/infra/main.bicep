@@ -202,7 +202,7 @@ module openAi 'br/public:avm/res/cognitive-services/account:0.7.2' = {
     }
     sku: azureOpenAiSkuName
     deployments: openAiDeployments
-    disableLocalAuth: true
+    disableLocalAuth: false
     managedIdentities: {
       systemAssigned: true
     }
