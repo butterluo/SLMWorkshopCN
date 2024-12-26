@@ -55,6 +55,8 @@ azd up
 
 ***when you see the message "Enter a value for the 'currentUserObjectId' infrastructure parameter" then paste the output of command" az ad signed-in-user show --query id  --output tsv"***
 
+After executing the `azd up` command, an `.azure` folder will be generated under the `0_lab_preparation` directory. Within the subfiles of the `.azure` folder, you can locate the `.env` file required to access the resources created by the `azd up` command. Copy this `.env` file to the root directory of this workshop project, and replace the dummy KEY values with the your actual KEYs.
+
 **Important**: Beware that the resources created by this command will incur immediate costs, primarily from the AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. You can run `azd down` or delete the resources manually to avoid unnecessary spending.
 You will be prompted to select two locations, one for the majority of resources and one for the OpenAI resource, which is currently a short list. That location list is based on the OpenAI model availability table and may become outdated as availability changes.
 After the application has been successfully deployed you will see a URL printed to the console. Click that URL to interact with the application in your browser. It will look like the following:
