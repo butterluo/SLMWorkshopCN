@@ -7,7 +7,7 @@ The OpenAI o1 AI reasoning model represents a significant leap forward in artifi
 
 To train your own o1, you need to train a PRM(Process Reward Model) first. Then the PRM will guide the traing and inference of your own O1. Here is a method to generate datas which can be used to train a PRM. This method is based on the evolve-instruct, WizardMath, MCTS(Monte Carlo Tree Search).
 
-How to improve your model's reasoning capability is another topic, and it is **coming soon。。。。**
+How to improve your model's reasoning capability is another topic, and it is [here](https://github.com/butterluo/ImproveReasoning/blob/main/data/evolvemcts4rl/README.md).
 
 ## Implementation
 This implementation is based on the [WizardLM](https://arxiv.org/abs/2304.12244), [h2o-wizardlm](https://github.com/h2oai/h2o-wizardlm), [Math-Shepherd](https://arxiv.org/abs/2312.08935) and [Verify Step By Step](https://arxiv.org/abs/2305.20050).
