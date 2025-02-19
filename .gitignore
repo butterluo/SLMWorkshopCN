@@ -177,8 +177,16 @@ _site/
 
 Gemfile.lock
 
+# azure config
 .azure
+.env
 config_prd.yml
 config_prd.json
-pdf_mixed_tmp/
-splitted_raw_data/
+
+# synthetic qa
+1_synthetic-qa-generation/raw_data/*.pdf
+1_synthetic-qa-generation/seed/pdf_mixed_tmp
+1_synthetic-qa-generation/seed/pdf_image_tmp
+1_synthetic-qa-generation/seed/images
+1_synthetic-qa-generation/seed/splitted_raw_data
+1_synthetic-qa-generation/seed/outputs_tmp
