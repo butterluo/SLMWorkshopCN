@@ -12,7 +12,6 @@ dependencies:
     - trl==0.10.1
     - einops==0.8.0
     - datasets==2.21.0
-    - wandb==0.17.8
     - mlflow==2.16.0
     - azureml-mlflow==1.57.0
     - azureml-sdk==1.57.0

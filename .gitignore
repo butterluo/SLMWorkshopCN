@@ -176,6 +176,8 @@ _site/
 0_lab_preparation/3_structured_output.ipynb
 
 Gemfile.lock
+# local tool
+hfd.sh
 
 # azure config
 .azure
@@ -190,3 +192,7 @@ config_prd.json
 1_synthetic-qa-generation/seed/images
 1_synthetic-qa-generation/seed/splitted_raw_data
 1_synthetic-qa-generation/seed/outputs_tmp
+
+# sft
+phi3-inference-test/
+dataset_tmp/

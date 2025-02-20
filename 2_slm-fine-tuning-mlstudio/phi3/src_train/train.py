@@ -1,4 +1,6 @@
 import os
+os.environ['DISABLE_MLFLOW_INTEGRATION']="TRUE"
+os.environ['WANDB_DISABLED']="true"
 import argparse
 import sys
 import logging
@@ -13,7 +15,13 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments,
 from datasets import load_dataset
 from datetime import datetime
 
+logging.basicConfig(
+        format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+        handlers=[logging.StreamHandler(sys.stdout)],
+    )
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 def load_model(args):
 
@@ -28,7 +36,7 @@ def load_model(args):
     model = AutoModelForCausalLM.from_pretrained(model_name_or_path, **model_kwargs)
     tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
     tokenizer.model_max_length = args.max_seq_length
-    tokenizer.pad_token = tokenizer.unk_token  # use unk rather than eos token to prevent endless generation
+    tokenizer.pad_token = tokenizer.unk_token if tokenizer.unk_token else tokenizer.eos_token  # Use unk rather than eos token to prevent endless generation. But eos_tkn is more general than unk_tkn
     tokenizer.pad_token_id = tokenizer.convert_tokens_to_ids(tokenizer.pad_token)
     tokenizer.padding_side = "right"
     return model, tokenizer
@@ -41,7 +49,7 @@ def apply_chat_template(
     # Add an empty system message if there is none
     if messages[0]["role"] != "system":
         messages.insert(0, {"role": "system", "content": ""})
-    example["text"] = tokenizer.apply_chat_template(
+    example["text"] = tokenizer.apply_chat_template(# https://hf-mirror.com/docs/transformers/main/en/internal/tokenization_utils#transformers.PreTrainedTokenizerBase.apply_chat_template
         messages, tokenize=False, add_generation_prompt=False)
     return example
 
@@ -50,18 +58,24 @@ def main(args):
     ###################
     # Hyper-parameters
     ###################
-    # Only overwrite environ if wandb param passed
-    if len(args.wandb_project) > 0:
-        os.environ['WANDB_API_KEY'] = args.wandb_api_key    
-        os.environ["WANDB_PROJECT"] = args.wandb_project
-    if len(args.wandb_watch) > 0:
-        os.environ["WANDB_WATCH"] = args.wandb_watch
-    if len(args.wandb_log_model) > 0:
-        os.environ["WANDB_LOG_MODEL"] = args.wandb_log_model
-        
-    use_wandb = len(args.wandb_project) > 0 or ("WANDB_PROJECT" in os.environ and len(os.environ["WANDB_PROJECT"]) > 0) 
-        
-    training_config = {
+    # # Only overwrite environ if wandb param passed
+    # if len(args.wandb_project) > 0:
+    #     os.environ['WANDB_API_KEY'] = args.wandb_api_key    
+    #     os.environ["WANDB_PROJECT"] = args.wandb_project
+    # if len(args.wandb_watch) > 0:
+    #     os.environ["WANDB_WATCH"] = args.wandb_watch
+    # if len(args.wandb_log_model) > 0:
+    #     os.environ["WANDB_LOG_MODEL"] = args.wandb_log_model
+    #
+    # use_wandb = len(args.wandb_project) > 0 or ("WANDB_PROJECT" in os.environ and len(os.environ["WANDB_PROJECT"]) > 0) 
+    os.makedirs(args.model_dir, exist_ok=True)
+    logger.info(f">>model_dir>>:{os.path.abspath(args.model_dir)}")
+    logger.info(f">>output_dir>>:{os.path.abspath(args.output_dir)}")
+    output_dir = os.path.join(os.path.abspath(args.model_dir), args.output_dir)
+    logger.info(f">>output_dir_NEW>>:{os.path.abspath(output_dir)}")
+    os.makedirs(output_dir, exist_ok=True)    
+
+    training_config = {           # HF param
         "bf16": True,
         "do_eval": False,
         "learning_rate": args.learning_rate,
@@ -71,7 +85,7 @@ def main(args):
         "lr_scheduler_type": args.lr_scheduler_type,
         "num_train_epochs": args.epochs,
         "max_steps": -1,
-        "output_dir": args.output_dir,
+        "output_dir": output_dir,
         "overwrite_output_dir": True,
         "per_device_train_batch_size": args.train_batch_size,
         "per_device_eval_batch_size": args.eval_batch_size,
@@ -85,7 +99,7 @@ def main(args):
         "warmup_ratio": args.warmup_ratio,
     }
 
-    peft_config = {
+    peft_config = {           # HF param
         "r": args.lora_r,
         "lora_alpha": args.lora_alpha,
         "lora_dropout": args.lora_dropout,
@@ -95,25 +109,22 @@ def main(args):
         "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
         "modules_to_save": None,
     }
-    
-    checkpoint_dir = os.path.join(args.output_dir, "checkpoints")
-    
-    train_conf = TrainingArguments(
+
+    train_conf = TrainingArguments(           # HF param
         **training_config,
-        report_to="wandb" if use_wandb else "none",
-        run_name=args.wandb_run_name if use_wandb else None,    
+        report_to= ["tensorboard"], #"wandb" if use_wandb else "none",
+        run_name="custom_run",    
     )
+
+    logger.info(f">>logging_dir>>:{train_conf.logging_dir}")
+    os.makedirs(train_conf.logging_dir, exist_ok=True)
+
     peft_conf = LoraConfig(**peft_config)
     model, tokenizer = load_model(args)
 
     ###############
     # Setup logging
     ###############
-    logging.basicConfig(
-        format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
-        datefmt="%Y-%m-%d %H:%M:%S",
-        handlers=[logging.StreamHandler(sys.stdout)],
-    )
     log_level = train_conf.get_process_log_level()
     logger.setLevel(log_level)
     datasets.utils.logging.set_verbosity(log_level)
@@ -128,12 +139,15 @@ def main(args):
     )
     logger.info(f"Training/evaluation parameters {train_conf}")
     logger.info(f"PEFT parameters {peft_conf}")    
-    
+
     ##################
     # Data Processing
     ##################
+    # 数据流（可选）：在1_training_mlflow_phi3.ipynb/Data Prepare中把原始数据转成训练所需格式保存到本地的DATA_DIR；把DATA_DIR中的数据作为data asset上传到azure；ipynb/Start training job中把data asset的名字和版本传给该程序的args.train_dir；因此这里的train_dir就是指向从data asset拉下来的本地地址了
+    logger.info(f"TRAIN_DIR:>>{args.train_dir}<<")
     train_dataset = load_dataset('json', data_files=os.path.join(args.train_dir, 'train.jsonl'), split='train')
     eval_dataset = load_dataset('json', data_files=os.path.join(args.train_dir, 'eval.jsonl'), split='train')
+    logger.info(f"rm col:>>{train_dataset.features}<<")
     column_names = list(train_dataset.features)
 
     processed_train_dataset = train_dataset.map(
@@ -166,7 +180,7 @@ def main(args):
         tokenizer=tokenizer,
         packing=True
     )
-    
+
     # Show current memory stats
     gpu_stats = torch.cuda.get_device_properties(0)
     start_gpu_memory = round(torch.cuda.max_memory_reserved() / 1024 / 1024 / 1024, 3)
@@ -174,17 +188,13 @@ def main(args):
     logger.info(f"GPU = {gpu_stats.name}. Max memory = {max_memory} GB.")
     logger.info(f"{start_gpu_memory} GB of memory reserved.")
 
-    last_checkpoint = None
-    if os.path.isdir(checkpoint_dir):
-        checkpoints = [os.path.join(checkpoint_dir, d) for d in os.listdir(checkpoint_dir)]
-        if len(checkpoints) > 0:
-            checkpoints.sort(key=os.path.getmtime, reverse=True)
-            last_checkpoint = checkpoints[0]        
+    trainer_stats = trainer.train() ## train
 
-    trainer_stats = trainer.train(resume_from_checkpoint=last_checkpoint)
-    
+    #############
+    # Logging
+    #############
     metrics = trainer_stats.metrics
- 
+
     # Show final memory and time stats 
     used_memory = round(torch.cuda.max_memory_reserved() / 1024 / 1024 / 1024, 3)
     used_memory_for_lora = round(used_memory - start_gpu_memory, 3)
@@ -200,36 +210,35 @@ def main(args):
     
     trainer.log_metrics("train", metrics)
     trainer.save_metrics("train", metrics)
-    trainer.save_state()
+    trainer.save_state() # 保存trainer的状态
     
     #############
     # Evaluation
     #############
-    tokenizer.padding_side = "left"
-    metrics = trainer.evaluate()
-    metrics["eval_samples"] = len(processed_eval_dataset)
-    trainer.log_metrics("eval", metrics)
-    trainer.save_metrics("eval", metrics)
-    
+    # tokenizer.padding_side = "left"
+    # metrics = trainer.evaluate()
+    # metrics["eval_samples"] = len(processed_eval_dataset)
+    # trainer.log_metrics("eval", metrics)
+    # trainer.save_metrics("eval", metrics)
+
     # ############
     # # Save model
     # ############
-    os.makedirs(args.model_dir, exist_ok=True)
 
     if args.save_merged_model:
         model_tmp_dir = "model_tmp"
         os.makedirs(model_tmp_dir, exist_ok=True)
         trainer.model.save_pretrained(model_tmp_dir)
-        print(f"Save merged model: {args.model_dir}")
+        logger.info(f"Save merged model: {args.model_dir}")
         from peft import AutoPeftModelForCausalLM
         model = AutoPeftModelForCausalLM.from_pretrained(model_tmp_dir, low_cpu_mem_usage=True, torch_dtype=torch.bfloat16)
         merged_model = model.merge_and_unload()
         merged_model.save_pretrained(args.model_dir, safe_serialization=True)
     else:
-        print(f"Save PEFT model: {args.model_dir}")    
+        logger.info(f"Save PEFT model: {args.model_dir}")    
         trainer.model.save_pretrained(args.model_dir)
 
-    tokenizer.save_pretrained(args.model_dir)       
+    tokenizer.save_pretrained(args.model_dir)
 
 def parse_args():
     # setup argparse
@@ -237,11 +246,11 @@ def parse_args():
     # curr_time = datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
 
     # hyperparameters
-    parser.add_argument("--model_name_or_path", default="microsoft/Phi-3.5-mini-instruct", type=str, help="Input directory for training")    
+    parser.add_argument("--model_name_or_path", default="microsoft/Phi-3.5-mini-instruct", type=str, help="Input directory for training")# Qwen/Qwen2.5-0.5B-Instruct, microsoft/Phi-3.5-mini-instruct
     parser.add_argument("--train_dir", default="data", type=str, help="Input directory for training")
     parser.add_argument("--model_dir", default="./model", type=str, help="output directory for model")
     parser.add_argument("--epochs", default=1, type=int, help="number of epochs")
-    parser.add_argument("--output_dir", default="./output_dir", type=str, help="directory to temporarily store when training a model")    
+    parser.add_argument("--output_dir", default="./ckp_dir", type=str, help="directory to temporarily store when training a model")
     parser.add_argument("--train_batch_size", default=2, type=int, help="training - mini batch size for each gpu/process")
     parser.add_argument("--eval_batch_size", default=4, type=int, help="evaluation - mini batch size for each gpu/process")
     parser.add_argument("--learning_rate", default=5e-06, type=float, help="learning rate")
@@ -259,12 +268,12 @@ def parse_args():
     parser.add_argument("--lora_alpha", default=16, type=int, help="lora alpha")
     parser.add_argument("--lora_dropout", default=0.05, type=float, help="lora dropout")
     
-    # wandb params
-    parser.add_argument("--wandb_api_key", type=str, default="")
-    parser.add_argument("--wandb_project", type=str, default="")
-    parser.add_argument("--wandb_run_name", type=str, default="")
-    parser.add_argument("--wandb_watch", type=str, default="gradients") # options: false | gradients | all
-    parser.add_argument("--wandb_log_model", type=str, default="false") # options: false | true
+    # # wandb params
+    # parser.add_argument("--wandb_api_key", type=str, default="")
+    # parser.add_argument("--wandb_project", type=str, default="")
+    # parser.add_argument("--wandb_run_name", type=str, default="")
+    # parser.add_argument("--wandb_watch", type=str, default="gradients") # options: false | gradients | all
+    # parser.add_argument("--wandb_log_model", type=str, default="false") # options: false | true
 
     # parse args
     args = parser.parse_args()

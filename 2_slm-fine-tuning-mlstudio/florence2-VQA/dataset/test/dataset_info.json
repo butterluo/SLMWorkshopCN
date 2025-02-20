@@ -1,0 +1,436 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "default",
+  "dataset_name": "dataset_tmp",
+  "dataset_size": 35451978709,
+  "description": "",
+  "download_checksums": {
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00000-of-00038.parquet": {
+      "num_bytes": 61005816,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00001-of-00038.parquet": {
+      "num_bytes": 275423301,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00002-of-00038.parquet": {
+      "num_bytes": 219514232,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00003-of-00038.parquet": {
+      "num_bytes": 83214969,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00004-of-00038.parquet": {
+      "num_bytes": 20436450,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00005-of-00038.parquet": {
+      "num_bytes": 24023166,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00006-of-00038.parquet": {
+      "num_bytes": 26240599,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00007-of-00038.parquet": {
+      "num_bytes": 20972832,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00008-of-00038.parquet": {
+      "num_bytes": 33260985,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00009-of-00038.parquet": {
+      "num_bytes": 33817193,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00010-of-00038.parquet": {
+      "num_bytes": 25082910,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00011-of-00038.parquet": {
+      "num_bytes": 187784619,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00012-of-00038.parquet": {
+      "num_bytes": 210143929,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00013-of-00038.parquet": {
+      "num_bytes": 333301228,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00014-of-00038.parquet": {
+      "num_bytes": 126017741,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00015-of-00038.parquet": {
+      "num_bytes": 291711131,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00016-of-00038.parquet": {
+      "num_bytes": 330335171,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00017-of-00038.parquet": {
+      "num_bytes": 305741928,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00018-of-00038.parquet": {
+      "num_bytes": 354955892,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00019-of-00038.parquet": {
+      "num_bytes": 321182597,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00020-of-00038.parquet": {
+      "num_bytes": 380504508,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00021-of-00038.parquet": {
+      "num_bytes": 275834669,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00022-of-00038.parquet": {
+      "num_bytes": 393616383,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00023-of-00038.parquet": {
+      "num_bytes": 382469839,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00024-of-00038.parquet": {
+      "num_bytes": 346261328,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00025-of-00038.parquet": {
+      "num_bytes": 321116283,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00026-of-00038.parquet": {
+      "num_bytes": 89383027,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00027-of-00038.parquet": {
+      "num_bytes": 51066461,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00028-of-00038.parquet": {
+      "num_bytes": 102868238,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00029-of-00038.parquet": {
+      "num_bytes": 225772270,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00030-of-00038.parquet": {
+      "num_bytes": 290754437,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00031-of-00038.parquet": {
+      "num_bytes": 239535822,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00032-of-00038.parquet": {
+      "num_bytes": 130228837,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00033-of-00038.parquet": {
+      "num_bytes": 48206135,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00034-of-00038.parquet": {
+      "num_bytes": 105220633,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00035-of-00038.parquet": {
+      "num_bytes": 155651731,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00036-of-00038.parquet": {
+      "num_bytes": 269641696,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/train-00037-of-00038.parquet": {
+      "num_bytes": 305578463,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00000-of-00017.parquet": {
+      "num_bytes": 45950315,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00001-of-00017.parquet": {
+      "num_bytes": 29369151,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00002-of-00017.parquet": {
+      "num_bytes": 52570721,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00003-of-00017.parquet": {
+      "num_bytes": 40404351,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00004-of-00017.parquet": {
+      "num_bytes": 61635453,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00005-of-00017.parquet": {
+      "num_bytes": 57045163,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00006-of-00017.parquet": {
+      "num_bytes": 58515307,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00007-of-00017.parquet": {
+      "num_bytes": 79425954,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00008-of-00017.parquet": {
+      "num_bytes": 71662378,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00009-of-00017.parquet": {
+      "num_bytes": 66744369,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00010-of-00017.parquet": {
+      "num_bytes": 60480414,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00011-of-00017.parquet": {
+      "num_bytes": 57533796,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00012-of-00017.parquet": {
+      "num_bytes": 100151002,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00013-of-00017.parquet": {
+      "num_bytes": 71377920,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00014-of-00017.parquet": {
+      "num_bytes": 65167466,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00015-of-00017.parquet": {
+      "num_bytes": 77130814,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/validation-00016-of-00017.parquet": {
+      "num_bytes": 77816466,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00000-of-00017.parquet": {
+      "num_bytes": 69967806,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00001-of-00017.parquet": {
+      "num_bytes": 34352587,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00002-of-00017.parquet": {
+      "num_bytes": 50772229,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00003-of-00017.parquet": {
+      "num_bytes": 55201452,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00004-of-00017.parquet": {
+      "num_bytes": 64925192,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00005-of-00017.parquet": {
+      "num_bytes": 58183879,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00006-of-00017.parquet": {
+      "num_bytes": 65925218,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00007-of-00017.parquet": {
+      "num_bytes": 63487331,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00008-of-00017.parquet": {
+      "num_bytes": 69498738,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00009-of-00017.parquet": {
+      "num_bytes": 61134800,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00010-of-00017.parquet": {
+      "num_bytes": 70426581,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00011-of-00017.parquet": {
+      "num_bytes": 68125373,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00012-of-00017.parquet": {
+      "num_bytes": 68994380,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00013-of-00017.parquet": {
+      "num_bytes": 83261611,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00014-of-00017.parquet": {
+      "num_bytes": 59015391,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00015-of-00017.parquet": {
+      "num_bytes": 91648874,
+      "checksum": null
+    },
+    "/mnt/d/BT/SRC/NLP/LLM/SFT/SLMWorkshopCN/2_slm-fine-tuning-mlstudio/florence2-VQA/dataset_tmp/data/test-00016-of-00017.parquet": {
+      "num_bytes": 85826090,
+      "checksum": null
+    }
+  },
+  "download_size": 9591606021,
+  "features": {
+    "questionId": {
+      "dtype": "int32",
+      "_type": "Value"
+    },
+    "question": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "question_types": [
+      {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    ],
+    "image": {
+      "_type": "Image"
+    },
+    "docId": {
+      "dtype": "int32",
+      "_type": "Value"
+    },
+    "ucsf_document_id": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "ucsf_document_page_no": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "answers": [
+      {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    ]
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 45043584730,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 28213771601,
+      "num_examples": 39463,
+      "shard_lengths": [
+        1339,
+        600,
+        639,
+        739,
+        5395,
+        3417,
+        439,
+        800,
+        439,
+        500,
+        439,
+        1139,
+        400,
+        439,
+        500,
+        539,
+        500,
+        539,
+        500,
+        400,
+        439,
+        500,
+        438,
+        400,
+        438,
+        400,
+        838,
+        300,
+        400,
+        438,
+        400,
+        438,
+        400,
+        400,
+        438,
+        400,
+        338,
+        2276,
+        1338,
+        400,
+        538,
+        500,
+        538,
+        738,
+        1738,
+        1476,
+        938,
+        600,
+        538,
+        500,
+        238
+      ],
+      "dataset_name": "dataset_tmp"
+    },
+    "validation": {
+      "name": "validation",
+      "num_bytes": 3578907109,
+      "num_examples": 5349,
+      "shard_lengths": [
+        1145,
+        945,
+        630,
+        845,
+        628,
+        728,
+        428
+      ],
+      "dataset_name": "dataset_tmp"
+    },
+    "test": {
+      "name": "test",
+      "num_bytes": 3659299999,
+      "num_examples": 5188,
+      "shard_lengths": [
+        1118,
+        815,
+        710,
+        710,
+        715,
+        710,
+        410
+      ],
+      "dataset_name": "dataset_tmp"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

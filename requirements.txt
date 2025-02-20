@@ -12,14 +12,14 @@ azure-identity~=1.19.0
 azure-search-documents==11.5.1
 azure-ai-generative==1.0.0b11
 azure-cognitiveservices-speech~=1.41.1
-azure-ai-documentintelligence==1.0.0b4
+azure-ai-documentintelligence==1.0.0b2
 scikit-learn==1.5.2
 datasets~=3.0.2
 opencv-python-headless==4.10.0.84
 Markdown==3.7
 markdownify==0.13.1
 pymupdf==1.24.12
-Jinja2==3.1.4
+Jinja2==3.1.5
 jsonlines==4.0.0
 promptflow[azure]==1.16.1
 promptflow-tools==1.4.0

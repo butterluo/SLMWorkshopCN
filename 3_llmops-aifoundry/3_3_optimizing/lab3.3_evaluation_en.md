@@ -3,7 +3,7 @@ layout: default
 title: Lab 3.3.1 Evaluate your models using Prompt Flow (UI)
 permalink: /3_3_1_evaluation/
 parent: Lab 3.3 Overview
-grand_parent: Lab 3. LLMOps for SLM with Azure AI Studio
+grand_parent: Lab 3. LLMOps for SLM with Azure AI Foundry
 nav_order: 631
 ---
 
@@ -15,7 +15,7 @@ nav_order: 631
 ### Prerequisites
 
 - An Azure subscription where you can create an AI Hub and AI project Resource
-- Deployed gpt-4o model in Azure AI Studio
+- Deployed gpt-4o model in Azure AI Foundry
 
 
 ### Task
@@ -33,7 +33,7 @@ nav_order: 631
 - 4️⃣ Create Custom Evaluation flow on Prompt flow
 
 ### 1️⃣ Manual evaluations to review outputs of the selected model 
-1. Go to the Azure AI Studio > Evaluation
+1. Go to the Azure AI Foundry > "Assess and improve" > Evaluation
 2. Click on the "Manual Evaluation" tab to create an manual evaluation to assess and compare AI application performance.
 ![new manual evaluation](images/new_manual_evaluation.jpg)
 
@@ -43,7 +43,7 @@ You are a math assistant, and you are going to read the context which includes s
 ```
 4. Click the import test data button to import the test data. You can add your data as well if you want to test the model with the context.
 
-5. Select the dataset you want to test on the model.
+5. Select the dataset you want to test on the model.(You can use `3_llmops-aifoundry/3_3_optimizing/data/simple_math_data_en.jsonl`)
 ![select dataset](images/import_test_data_select_dataset.jpg)
 
 6. Map the test data. Select question as the input and answer as the output. Click the add button to import the test data.
@@ -54,7 +54,7 @@ You are a math assistant, and you are going to read the context which includes s
 
 ### 2️⃣ Conduct A/B testing with your LLM variants
 Create a new chat flow with variants 
-1. Azure AI Studio > Prompt flow > Click +Create to create a new flow
+1. Azure AI Foundry > Prompt flow > Click +Create to create a new flow
 ![create a new flow](../3_2_prototyping/images/create_new_flow.jpg)
 
 2. In order to get a user-friendly chat interface, select Chat flow
@@ -240,7 +240,7 @@ user：
 
 
 ### 3️⃣ Create QnA Relevance Evaluation flow with variants
-1. Go to the Azure AI Studio > Evaluation
+1. Go to the Azure AI Foundry > 'Assess and improve' > Evaluation
 
 2. Click on the "+New Evaluation" on the Automated evaluations tab to create. 
 
