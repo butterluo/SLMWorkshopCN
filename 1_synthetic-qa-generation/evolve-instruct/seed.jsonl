@@ -1,0 +1,29 @@
+{"idx": 1, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What type of EC2 instances are recommended for data preparation and data transformation?"}
+{"idx": 2, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "Which instances are suggested for distributed GPU training?"}
+{"idx": 3, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "Where can you find additional information if you encounter issues such as downloading the dataset or converting raw data to the TFRecord feature set?"}
+{"idx": 4, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What is the learning rate (LR) at step 7000 in the hvd_train_log?"}
+{"idx": 5, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "How many GPUs were used for training in the provided context?"}
+{"idx": 6, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What is the speed at step 50 in the hvd_train_log?"}
+{"idx": 7, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What instance types are recommended for distributed GPU training using Uber's Horovod or Tensorflow's DistributedStrategy?"}
+{"idx": 8, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What is the default root volume size for the EC2 instances mentioned, and what is the recommended size for training purposes?"}
+{"idx": 9, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What can you do if you do not want to increase the root volume size of the EC2 instance?"}
+{"idx": 10, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What is the first step to download ImageNet according to the provided method?"}
+{"idx": 11, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What is the recommended EC2 instance type for storing the ImageNet dataset and why?"}
+{"idx": 12, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What environment variables need to be set before running the download script for the ImageNet dataset?"}
+{"idx": 13, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What is the total size of the ImageNet training and validation sets?"}
+{"idx": 14, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What is the learning rate (LR) at step 14000 in the vd_train_log?"}
+{"idx": 15, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What is the first step to use TensorFlow's download script for ImageNet?"}
+{"idx": 16, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What should you do if the TensorFlow download script method does not work?"}
+{"idx": 17, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "How do you extract the validation set after downloading it manually?"}
+{"idx": 18, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What is the purpose of the script 'preprocess_imagenet.py' and how is it executed?"}
+{"idx": 19, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What is the size of the 'ILSVRC2012_bbox_train_v2.tar.gz' file and when was it last modified?"}
+{"idx": 20, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What is the first step to prepare the validation set for ImageNet training?"}
+{"idx": 21, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "How can you mount an EBS volume on an EC2 instance and change its owner to ec2-user?"}
+{"idx": 22, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "Why is it recommended to use Python2 instead of Python3 for TensorFlow models repository?"}
+{"idx": 23, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "Why is it important to install OpenCV when working with ImageNet raw data?"}
+{"idx": 24, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What instance type is used for distributed GPU training in the provided context?"}
+{"idx": 25, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What should be done after data transformation before training the ResNet-50 model?"}
+{"idx": 26, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What is the size of the file 'model.ckpt-20000.data-00001-of-00002'?"}
+{"idx": 27, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What is the purpose of the provided link in the context?"}
+{"idx": 28, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What can be skipped according to the context, and why?"}
+{"idx": 29, "Skill": "Distributed training on Cloud", "Difficulty": 5, "Instruction": "What is the date and time mentioned in the context?"}

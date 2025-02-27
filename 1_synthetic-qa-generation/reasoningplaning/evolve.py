@@ -2,6 +2,7 @@ import heapq
 import math
 import random
 import os
+import time
 import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import itertools
@@ -922,6 +923,9 @@ class AzureGPTPipeline:
     def generateApi(self, prompt: str, num_rollouts) -> List[str]:
         def send_request(prompt):
             temperature = random.choice([0.7, 1.0])#(self.temperature_range)
+            slptim = random.choice([0, 1, 2, 3])
+            if slptim:
+                time.sleep(slptim)
             if self.model_type == "aoai":
                 response = self.client.chat.completions.create(
                     model=self.model_name,
@@ -952,7 +956,7 @@ if __name__ == "__main__":
     parser.add_argument("--temperature", type=int, default=0.7)
     parser.add_argument("--top_p", type=int, default=0.95)
     parser.add_argument("--model_name", type=str, default="gpt-4o")
-    parser.add_argument("--num_branches", type=int, default=4) # how many branches we should explore when we complete rest part of a solution base on the existing part.
+    parser.add_argument("--num_branches", type=int, default=2) # how many branches we should explore when we complete rest part of a solution base on the existing part.
     parser.add_argument("--max_search", type=int, default=4) # the max limit of times we try to explore different solution of a problem using a MCTS like method
     parser.add_argument("--max_branches", type=int, default=40) # the max limit of the total number of branches we have explored when search different solutions for a problem
     args = parser.parse_args()
