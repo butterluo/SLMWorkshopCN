@@ -293,4 +293,4 @@ if __name__ == "__main__":
     args = parse_args()
     #args.model_name_or_path = "/mnt/batch/tasks/shared/LS_root/mounts/clusters/poc-phi3/code/Users/model/Florence-2-base-ft"
     print(args)
-    main(args)    
+    main(args)
