@@ -1,6 +1,5 @@
 import os
 os.environ['DISABLE_MLFLOW_INTEGRATION']="TRUE"
-os.environ['WANDB_DISABLED']="true"
 
 import sys, re
 import argparse
@@ -128,7 +127,7 @@ def main(args):
     dataset = get_gsm8k_questions(data_dir=data_dir)
 
     model, tokenizer = FastLanguageModel.from_pretrained(
-        model_name = "microsoft/phi-4", # Load up `Phi-4 14B`, and set parameters
+        model_name = "microsoft/phi-4", #"microsoft/phi-4", # Load up `Phi-4 14B`, and set parameters # unsloth/Phi-4-mini-instruct-unsloth-bnb-4bit
         max_seq_length = max_seq_length,
         load_in_4bit = True, # False for LoRA 16bit
         fast_inference = True, # Enable vLLM fast inference

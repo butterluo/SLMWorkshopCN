@@ -196,3 +196,4 @@ config_prd.json
 # sft
 phi3-inference-test/
 dataset_tmp/
+cache-*.arrow
